@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.containe{
+    padding: 2rem;
+}
+@layer base {
+    body {
+      @apply  bg-white;
+    }
+    .dropdown {
+      @apply w-full lg:max-w-[296px] cursor-pointer;
+    }
+    .dropdown-btn {
+      @apply flex h-[64px] items-center px-[18px] border rounded-lg;
+    }
+    .dropdown-icon-primary {
+      @apply text-2xl mr-[18px] text-violet-700;
+    }
+    .dropdown-icon-secondary {
+      @apply text-2xl text-violet-700 ml-auto;
+    }
+    .dropdown-menu {
+      @apply px-6 py-8 text-[15px] space-y-6 shadow-md bg-[#dae1e8] absolute w-full z-10 list-none rounded-b-lg;
+    }
+    .containee {
+      @apply px-8 py-6
+    }
+  }
