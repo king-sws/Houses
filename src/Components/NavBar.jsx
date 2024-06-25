@@ -8,6 +8,7 @@ function NavBar() {
     const toggel = ()=> setopen(!open)
     const [header , setheader] = useState(false)
 
+
     useEffect(() => {
       const Handler = () => {
         window.scrollY > 50 ? setheader(true) : setheader(false)
@@ -19,23 +20,31 @@ function NavBar() {
   
       
     })
+    useEffect(() => {
+        // Scroll to the top of the page
+        window.scrollTo(0, 0);
+      }, []);
+    
+    const isHomePage = location.pathname === '/';
   return (
     <header  className={`${header ? 'bg-white shadow-lg' : ''} sticky top-0 z-30 transition-all `} >
         <nav className="flex containee justify-between items-center" >
             <a href="/">
                 <img src="/logo.svg" alt="" />
             </a>
-            <div className="md:flex hidden  justify-center items-center gap-x-12 ">
-            <a href="#home">
-                        <p className="text-base font-medium text-gray-600 hover:text-black" >Home</p>
-                    </a>
-                    <a href="#hotels">
-                        <p className="text-base font-medium text-gray-600 hover:text-black" >Hotels</p>
-                    </a>
-                    <HashLink to="/contact">
-                        <p className="text-base font-medium text-gray-600 hover:text-black" >Contact us</p>
-                    </HashLink>
-            </div>
+            
+            {isHomePage && ( <div className="md:flex hidden  justify-center items-center gap-x-12 ">
+                <a href="#home" >
+                    <p className="text-base font-medium text-gray-600 hover:text-black" >Home</p>
+                </a>
+                <a href="#hotels">
+                    <p className="text-base font-medium text-gray-600 hover:text-black" >Hotels</p>
+                </a>
+                <HashLink to="/contact">
+                    <p className="text-base font-medium text-gray-600 hover:text-black" >Contact us</p>
+                </HashLink>
+            </div>) }
+
             <div className="md:flex hidden justify-between items-center">
                 
                 <div className="flex items-center justify-center gap-x-4 ">

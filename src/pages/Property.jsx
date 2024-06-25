@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom"
 import {housesData} from '../data/data'
 import { BiArea, BiBath, BiBed } from "react-icons/bi"
+import { motion } from "framer-motion"
 
 const Property = () => {
   const {id} = useParams()
@@ -28,7 +29,7 @@ const Property = () => {
             <div className="flex flex-col justify-start lg:flex-row gap-y-1 gap-x-8 items-center">
           <div className="">
             <div className="max-w-[800px] flex justify-start items-start mb-5 ">
-            <img src={house.imageLg} alt="" />
+            <motion.img initial={{ x: -50, opacity: 0  }} animate={{x: 0, opacity: 1  }} transition={{ duration: 1 }} src={house.imageLg} alt="" />
           </div>
           
           </div>
@@ -54,7 +55,7 @@ const Property = () => {
           {/* TexT */}
           </div>
           {/* Contact */}
-          <div className="border ml-0 lg:ml-[20%] rounded-lg flex flex-col w-full h-auto lg:h-[400px] max-w-[400px] p-5 shadow-lg">
+          <motion.div initial={{ x: 50, opacity: 0  }} animate={{x: 0, opacity: 1  }} transition={{ duration: 1 }} className="border ml-0 lg:ml-[20%] rounded-lg flex flex-col w-full h-auto lg:h-[400px] max-w-[400px] p-5 shadow-lg">
               <div className="flex gap-3 items-center mb-4">
                 <img src={house.agent.image} alt="Agent" className="w-[60px] h-[60px] border-[1px] border-gray-500 rounded-full p-1 hover:scale-105 transition-transform duration-300" />
                 <div>
@@ -72,7 +73,7 @@ const Property = () => {
                 <button className="bg-white px-5 sm:px-8 py-2 sm:py-3 rounded-lg text-black border-[1px] font-medium hover:bg-gray-300 transition-colors duration-300 w-full sm:w-auto">Call Now</button>
               </div>
 
-            </div>
+            </motion.div>
             {/* Contact */}
         </div>
         
